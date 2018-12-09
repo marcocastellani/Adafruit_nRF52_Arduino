@@ -19,6 +19,52 @@
 menu.softdevice=Bootloader
 menu.debug=Debug Mode
 
+
+#**********************************************
+# VLCReceiver nRF52832 Board
+#**********************************************
+vlcSender.name=Ulloc nRF52832 Vlc sender
+vlcSender.bootloader.tool=bootburn
+
+# Upload
+vlcSender.upload.tool=nrfutil
+vlcSender.upload.protocol=nrfutil
+vlcSender.upload.use_1200bps_touch=false
+vlcSender.upload.wait_for_upload_port=false
+vlcSender.upload.native_usb=false
+
+# Build
+vlcSender.build.mcu=cortex-m4
+vlcSender.build.f_cpu=64000000
+vlcSender.build.board=NRF52_VLCReceiver
+vlcSender.build.core=nRF5
+vlcSender.build.variant=vlcReceiver
+vlcSender.build.extra_flags=-DNRF52832_XXAA -DNRF52
+
+# SofDevice Menu
+# Ram & ROM size varies depending on SoftDevice (check linker script)
+
+vlcSender.menu.softdevice.s132v6=s132 6.1.1 r0
+vlcSender.menu.softdevice.s132v6.build.sd_flags=-DS132
+vlcSender.menu.softdevice.s132v6.build.sd_name=s132
+vlcSender.menu.softdevice.s132v6.build.sd_version=6.1.1
+vlcSender.menu.softdevice.s132v6.build.sd_fwid=0x00B7
+vlcSender.menu.softdevice.s132v6.build.ldscript=nrf52832_s132_v6.ld
+vlcSender.menu.softdevice.s132v6.upload.maximum_size=290816
+vlcSender.menu.softdevice.s132v6.upload.maximum_data_size=51072
+
+# Debug Menu
+vlcSender.menu.debug.l0=Level 0 (Release)
+vlcSender.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0 -Os
+vlcSender.menu.debug.l1=Level 1 (Error Message)
+vlcSender.menu.debug.l1.build.debug_flags=-DCFG_DEBUG=1 -Os
+vlcSender.menu.debug.l2=Level 2 (Full Debug)
+vlcSender.menu.debug.l2.build.debug_flags=-DCFG_DEBUG=2 -Os
+vlcSender.menu.debug.l3=Level 3 (Segger SystemView)
+vlcSender.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3 -Os
+
+
+
 #**********************************************
 # Feather nRF52832 Board
 #**********************************************
